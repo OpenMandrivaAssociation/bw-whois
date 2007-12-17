@@ -9,7 +9,6 @@ Source0:	whois-%{version}.tar.bz2
 Patch0:		whois-%{version}-config.patch
 BuildArch:      noarch
 BuildRequires:  perl-devel
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 BW Whois is a whois client designed to work with the new "Shared
