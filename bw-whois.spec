@@ -1,15 +1,15 @@
 Summary:	Enhanced WHOIS client on steroids
 Name:		bw-whois
-Version:	3.4
-Release:	%mkrel 4
+Version:	5.0
+Release:	%mkrel 1
 License:	GPL or Artistic
 Group:          Networking/Other
 URL:		http://whois.bw.org
 Source0:	whois-%{version}.tar.bz2
-Patch0:		whois-%{version}-config.patch
+Patch0:		whois-config.diff
 BuildArch:      noarch
 BuildRequires:  perl-devel
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 BW Whois is a whois client designed to work with the new "Shared
@@ -52,5 +52,3 @@ rm -rf %{buildroot}
 %{_bindir}/%{name}
 %{perl_vendorlib}/bwInclude.pm
 %{_mandir}/man1/%{name}.1*
-
-
