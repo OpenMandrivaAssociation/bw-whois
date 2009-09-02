@@ -1,7 +1,7 @@
 Summary:	Enhanced WHOIS client on steroids
 Name:		bw-whois
 Version:	5.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL or Artistic
 Group:          Networking/Other
 URL:		http://whois.bw.org
