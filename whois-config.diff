@@ -1,0 +1,114 @@
+diff -Naur whois-5.0/sd.conf whois-5.0.oden/sd.conf
+--- whois-5.0/sd.conf	2006-08-10 04:18:33.000000000 +0200
++++ whois-5.0.oden/sd.conf	2008-07-20 13:28:01.000000000 +0200
+@@ -1,4 +1,4 @@
+-# /etc/whois/sd.conf
++# /etc/bw-whois/sd.conf
+ # stripdisclaimer support for BW Whois
+ #
+ # This file is used by BW Whois begining with version 3.1. It is required 
+diff -Naur whois-5.0/whois whois-5.0.oden/whois
+--- whois-5.0/whois	2006-08-10 04:18:33.000000000 +0200
++++ whois-5.0.oden/whois	2008-07-20 13:29:01.000000000 +0200
+@@ -33,9 +33,9 @@
+ our $VERSION = "5.0";
+ 
+ # the location (full path) for various optional files
+-our $whois_conf_default = "/etc/whois/whois.conf";
+-our $tld_conf           = "/etc/whois/tld.conf";
+-our $sd_conf            = "/etc/whois/sd.conf";
++our $whois_conf_default = "/etc/bw-whois/whois.conf";
++our $tld_conf           = "/etc/bw-whois/tld.conf";
++our $sd_conf            = "/etc/bw-whois/sd.conf";
+ 
+ # where to find bwInclude.pm if you need it
+ # use lib "/path/to/directory";
+@@ -1312,7 +1312,7 @@
+                      is configured.)
+ 
+   --tld <path>       Full path/file name for tld.conf file. Defaults 
+-                     to "/etc/tld.conf".
++                     to "/etc/bw-whois/tld.conf".
+ 
+   --host <host>      Hostname of the whois server
+   -h <host>          this is the same as the <request>@<host> form
+diff -Naur whois-5.0/whois.1 whois-5.0.oden/whois.1
+--- whois-5.0/whois.1	2006-08-10 04:18:33.000000000 +0200
++++ whois-5.0.oden/whois.1	2008-07-20 13:29:37.000000000 +0200
+@@ -354,7 +354,7 @@
+ is configured.)
+ .IP "--tld=\fIpath\fR" 4
+ .IX Item "--tld=path"
+-Full path/file name for tld.conf file. Default: \fI/etc/whois/tld.conf\fR
++Full path/file name for tld.conf file. Default: \fI/etc/bw-whois/tld.conf\fR
+ .IP "--host=\fIhost\fR, -h \fIhost\fR" 4
+ .IX Item "--host=host, -h host"
+ Specify a specific host. 
+@@ -400,7 +400,7 @@
+ features, you will need to install the \fIwhois.conf\fR file and configure it 
+ to reflect your preferences. 
+ .PP
+-The standard location for \fIwhois.conf\fR is in the \fI/etc/whois\fR directory. If you 
++The standard location for \fIwhois.conf\fR is in the \fI/etc/bw-whois\fR directory. If you 
+ do not have access to that directory, or are running on a non-UNIX operating 
+ system that does not use the \fI/etc\fR directory, you may specify another location 
+ by setting the \f(CW\*(C`WHOIS_CONF\*(C'\fR environment variable or by editing the source code. 
+@@ -439,10 +439,10 @@
+ This feature requires the \fIsd.conf\fR file. 
+ .IP "tld_conf \fIfilepath\fR" 4
+ .IX Item "tld_conf filepath"
+-Alternate location for the \fItld.conf\fR file. Default: \fI/etc/whois/tld.conf\fR
++Alternate location for the \fItld.conf\fR file. Default: \fI/etc/bw-whois/tld.conf\fR
+ .IP "sd_conf \fIfilepath\fR" 4
+ .IX Item "sd_conf filepath"
+-Alternate location for the \fIsd.conf\fR file. Default: \fI/etc/whois/sd.conf\fR
++Alternate location for the \fIsd.conf\fR file. Default: \fI/etc/bw-whois/sd.conf\fR
+ .IP "timeout \fInumber\fR" 4
+ .IX Item "timeout number"
+ The number of seconds to timeout if a result is not returned by a whois server. 
+@@ -696,14 +696,14 @@
+ \&\fIhttp://www.ietf.org/rfc/rfc0954.txt\fR
+ .SH "FILES"
+ .IX Header "FILES"
+-.IP "\fI/etc/whois/tld.conf\fR" 4
+-.IX Item "/etc/whois/tld.conf"
++.IP "\fI/etc/bw-whois/tld.conf\fR" 4
++.IX Item "/etc/bw-whois/tld.conf"
+ An optional table of TLDs and associated whois servers. 
+-.IP "\fI/etc/whois/whois.conf\fR" 4
+-.IX Item "/etc/whois/whois.conf"
++.IP "\fI/etc/bw-whois/whois.conf\fR" 4
++.IX Item "/etc/bw-whois/whois.conf"
+ A configuration file for optional flags and other configurable values.
+-.IP "\fI/etc/whois/sd.conf\fR" 4
+-.IX Item "/etc/whois/sd.conf"
++.IP "\fI/etc/bw-whois/sd.conf\fR" 4
++.IX Item "/etc/bw-whois/sd.conf"
+ A configuration file for optional stripdisclaimer feature. 
+ .SH "NOTE BENE"
+ .IX Header "NOTE BENE"
+@@ -716,7 +716,7 @@
+ support \fItld.conf\fR file lookups for these domains. 
+ .PP
+ The default location for all the configuration files was changed to 
+-\&\fI/etc/whois/\fR in version 3.1. 
++\&\fI/etc/bw-whois/\fR in version 3.1. 
+ .PP
+ The stripheader feature was changed to stripdisclaimer in version 3.1. 
+ This feature now requires the \fIsd.conf\fR configuration file. 
+diff -Naur whois-5.0/whois.conf whois-5.0.oden/whois.conf
+--- whois-5.0/whois.conf	2006-08-10 04:18:33.000000000 +0200
++++ whois-5.0.oden/whois.conf	2008-07-20 13:29:51.000000000 +0200
+@@ -18,9 +18,9 @@
+ 
+ ### flags and parameters
+ # stripdisclaimer false
+-# tld_conf      /etc/whois/tld.conf
+-# sd_conf       /etc/whois/sd.conf
+-# filters_conf  /etc/whois/filters.conf
++# tld_conf      /etc/bw-whois/tld.conf
++# sd_conf       /etc/bw-whois/sd.conf
++# filters_conf  /etc/bw-whois/filters.conf
+ # timeout       60
+ # default_host  whois.crsnic.net
+ 
