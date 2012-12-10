@@ -52,3 +52,36 @@ rm -rf %{buildroot}
 %{_bindir}/%{name}
 %{perl_vendorlib}/bwInclude.pm
 %{_mandir}/man1/%{name}.1*
+
+
+%changelog
+* Wed Sep 02 2009 Thierry Vignaud <tv@mandriva.org> 5.0-2mdv2010.0
++ Revision: 424700
+- rebuild
+
+* Sun Jul 20 2008 Oden Eriksson <oeriksson@mandriva.com> 5.0-1mdv2009.0
++ Revision: 238944
+- 5.0
+- rediffed P0
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+
+* Fri Dec 22 2006 Oden Eriksson <oeriksson@mandriva.com> 3.4-4mdv2007.0
++ Revision: 101624
+- Import bw-whois
+
+* Sat Jul 15 2006 Oden Eriksson <oeriksson@mandriva.com> 3.4-4mdv2007.0
+- rebuild
+
+* Sat Jun 04 2005 Oden Eriksson <oeriksson@mandriva.com> 3.4-3mdk
+- rebuild
+- fix autodeps
+
+* Mon May 17 2004 Oden Eriksson <oeriksson@mandrakesoft.com> 3.4-2mdk
+- build release
+
