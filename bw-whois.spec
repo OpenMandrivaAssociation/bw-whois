@@ -4,7 +4,7 @@ Version:	5.0
 Release:	3
 License:	GPL or Artistic
 Group:          Networking/Other
-URL:		http://whois.bw.org
+URL:		https://whois.bw.org
 Source0:	whois-%{version}.tar.bz2
 Patch0:		whois-config.diff
 BuildArch:      noarch
